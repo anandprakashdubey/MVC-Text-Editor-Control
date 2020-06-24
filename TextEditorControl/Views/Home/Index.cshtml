@@ -1,0 +1,43 @@
+﻿@model TextEditorControl.Models.TextEditorModel
+
+@{
+    ViewBag.Title = "Text Editor Example";
+}
+
+<div style="padding:100px">
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            </div>
+
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                @Html.LabelFor(x => x.Message)
+            </div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(x => x.Message, new
+                {
+                    rows = "20",
+                    style = "resize:none;width:400px",
+                    placeholder = Html.DisplayNameFor(x=>x.Message),
+                    @class="form-control input-lg textarea-editor",
+
+                })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    }
+</div>
